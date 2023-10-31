@@ -34,4 +34,15 @@ class App
       list_authors
     end
   end
+
+  def adding_item(option)
+    case option
+    when '7'
+      add_book
+    when '8'
+      add_album
+    when '9'
+      add_game
+    end
+  end
 end
