@@ -13,4 +13,8 @@ class Item
   def move_to_archive
     @archived = true if can_be_archived?
   end
+
+  def add_genre(genre)
+    @genre = genre
+  end
 end
