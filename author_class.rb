@@ -1,6 +1,7 @@
 require 'securerandom'
 
 class Author
+  attr_reader :items
   attr_accessor :first_name, last_name
 
   def initialize(first_name, last_name)
