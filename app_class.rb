@@ -5,7 +5,11 @@ require_relative 'label_class'
 require_relative 'genre_class'
 require_relative 'author_class'
 
+require 'date'
+
 class App
+  attr_reader :games
+
   def initialize
     @books = []
     @albums = []
@@ -51,5 +55,19 @@ class App
     when '9'
       add_game
     end
+  end
+
+  def list_authors
+    return puts 'No available authors!' if @authors.empty?
+
+    @authors.each do |a|
+      puts a.first_name
+    end
+  end
+
+  def add_game(multiplayer, genre, author, label, publish_date)
+    last_played_at = Date.today
+    new_game = Game.New(multiplayer, last_played_at, genre, author, label, publish_date)
+    @games.append(new_game)
   end
 end
