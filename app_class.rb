@@ -17,4 +17,21 @@ class App
       puts 'Wrong number! Try again'
     end
   end
+
+  def listing_items(option)
+    case option
+    when '1'
+      list_books
+    when '2'
+      list_albums
+    when '3'
+      list_games
+    when '4'
+      list_labels
+    when '5'
+      list_genres
+    when '6'
+      list_authors
+    end
+  end
 end
