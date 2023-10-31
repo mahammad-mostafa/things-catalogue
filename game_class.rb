@@ -18,4 +18,8 @@ class Game < Item
     parent_ans = super
     parent_ans && (@last_played_at < Date.today.prev_year(2))
   end
+
+  def generate_string
+    { multiplayer: @multiplayer, last_played_at: @last_played_at, genre, author, label, publish_date}
+  end
 end
