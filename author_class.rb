@@ -10,5 +10,8 @@ class Author
     @items = []
   end
 
-  
+  def add_item(item)
+    @items.append(item)
+    item.add_author(self)
+  end
 end
