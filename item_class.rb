@@ -21,4 +21,12 @@ class Item
   def add_author(author)
     @author = author
   end
+
+  private
+
+
+  def can_be_archived?
+    days = (Date.today - @publish_date).to_i
+    days / 365.25 > 10
+  end
 end
