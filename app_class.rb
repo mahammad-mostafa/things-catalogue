@@ -1,3 +1,10 @@
+require_relative 'book_class'
+require_relative 'album_class'
+require_relative 'game_class'
+require_relative 'label_class'
+require_relative 'genre_class'
+require_relative 'author_class'
+
 class App
   def initialize
     @books = []
