@@ -22,4 +22,8 @@ class Game < Item
   def generate_string
     { multiplayer: @multiplayer, last_played_at: @last_played_at, genre, author, label, publish_date}
   end
+
+  def parse_string(arguments)
+    new(arguments['multiplayer'], arguments['last_payed_at'])
+  end
 end
