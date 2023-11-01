@@ -92,6 +92,8 @@ class App
     book = gets.chomp.to_i
     list_dynamic(@books, 'book', true)
     people = gets.chomp.to_i
+    puts book
+    puts people
   end
 
   def handle_exit
