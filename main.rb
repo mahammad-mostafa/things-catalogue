@@ -6,8 +6,11 @@ def main
   Message.welcome_message
   loop do
     Message.display_options
-    option = gets.chomp
-    break if option == '0'
+    option = gets.chomp.to_i
+    if option.zero?
+      app.handle_exit
+      break
+    end
 
     puts ''
     app.handle_option(option)
