@@ -21,7 +21,7 @@ class Author
   end
 
   def self.parse_string(arguments)
-    new (arguments['first_name'], arguments['last_name'])
+    new(arguments['first_name'], arguments['last_name'])
   end
 
   def self.input_arguments
