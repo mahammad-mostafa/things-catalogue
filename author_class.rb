@@ -14,4 +14,8 @@ class Author
     @items.append(item)
     item.add_author(self)
   end
+
+  def generate_string
+    { first_name: @first_name, last_name: @last_name }
+  end
 end
