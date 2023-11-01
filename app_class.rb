@@ -116,4 +116,5 @@ class App
     last_played_at = Date.today
     new_game = Game.New(multiplayer, last_played_at, genre, author, label, publish_date)
     @games.append(new_game)
+  end
 end
