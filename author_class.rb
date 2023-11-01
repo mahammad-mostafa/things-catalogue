@@ -18,4 +18,16 @@ class Author
   def generate_string
     { first_name: @first_name, last_name: @last_name }
   end
+
+  def self.parse_string(arguments)
+    new (arguments['first_name'], arguments['last_name'])
+  end
+
+  def self.input_arguments
+    print 'First Name?'
+    first_name = gets.chomp
+    print 'Last Name?'
+    last_name = gets.chomp
+    new(first_name, last_name)
+  end
 end
