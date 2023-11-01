@@ -2,11 +2,12 @@ require 'date'
 require 'securerandom'
 
 class Item
-  attr_reader :genre, :author, :label, :publish_date
+  attr_reader :id, :archived
+  attr_accessor :genre, :author, :label, :publish_date
 
-  def initialize(publish_date)
+  def initialize(publish_date, id = SecureRandom.uuid)
     @publish_date = publish_date
-    @id = SecureRandom.uuid
+    @id = id
     @archived = false
   end
 
@@ -16,10 +17,39 @@ class Item
 
   def add_genre(genre)
     @genre = genre
+    @genre.add_item(self) unless @genre.items.include?(self)
   end
 
   def add_author(author)
     @author = author
+    @author.add_item(self) unless @author.items.include?(self)
+  end
+
+  def add_label(label)
+    @label = label
+    @label.add_item(self) unless @label.items.include?(self)
+  end
+
+  def generate_string
+    hash = {}
+    hash['type'] = self.class
+    instance_variables.each do |variable|
+      value = instance_variable_get(variable)
+      value = value.generate_string if value.respond_to?(:generate_string)
+      value = value.to_s if value.is_a?(Date)
+      hash[variable] = value
+    end
+    hash
+  end
+
+  def input_date
+    print 'Publish date day: '
+    day = gets.chomp
+    print 'Publish date month: '
+    month = gets.chomp
+    print 'Publish date year: '
+    year = gets.chomp
+    Date.new(year, month, day)
   end
 
   private
