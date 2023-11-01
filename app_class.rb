@@ -103,7 +103,7 @@ class App
   def handle_exit
     # s
   end
-  
+
   def list_authors
     return puts 'No available authors!' if @authors.empty?
 
