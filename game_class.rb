@@ -7,10 +7,10 @@ class Game < Item
   attr_accessor :last_played_at
   attr_reader :multiplayer
 
-  def initialize(multiplayer, last_played_at, genre, author, label, publish_date)
+  def initialize(multiplayer, genre, author, label, publish_date)
     super(publish_date)
     @multiplayer = multiplayer
-    @last_played_at = last_played_at
+    @last_played_at = Date.today
     super.add_genre(genre)
     super.add_author(author)
     super.add_label(label)
@@ -22,7 +22,7 @@ class Game < Item
   end
 
   # def generate_string
-  #   { multiplayer: @multiplayer, last_played_at: @last_played_at, genre: super.genre.generate_string, author: super.author.generate_string, label: super.label.generate_string, publish_date: super.publish_date.generate_string}
+  #   { multiplayer: @multiplayer, last_played_at: @last_played_at }
   # end
 
   def self.parse_string(arguments)
@@ -38,6 +38,6 @@ class Game < Item
     # print 'Who is the author?'
     # athr = gets.chomp
     # print ''
-    new(multiplayer,last_played_at)
+    new(multiplayer, last_played_at)
   end
 end
