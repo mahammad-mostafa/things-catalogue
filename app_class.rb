@@ -8,7 +8,11 @@ require_relative 'author_class'
 require_relative 'storage_module'
 require_relative 'comparator_module'
 
+require 'date'
+
 class App
+  attr_reader :games
+
   def initialize
     @books = []
     @albums = []
@@ -98,5 +102,19 @@ class App
 
   def handle_exit
     # s
+  end
+
+  def list_authors
+    return puts 'No available authors!' if @authors.empty?
+
+    @authors.each do |a|
+      puts a.first_name
+    end
+  end
+
+  def add_game(multiplayer, genre, author, label, publish_date)
+    last_played_at = Date.today
+    new_game = Game.New(multiplayer, last_played_at, genre, author, label, publish_date)
+    @games.append(new_game)
   end
 end
