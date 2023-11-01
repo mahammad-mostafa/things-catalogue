@@ -16,7 +16,7 @@ class Author
   end
 
   def generate_string
-    { first_name: @first_name, last_name: @last_name }
+    { id: @id, first_name: @first_name, last_name: @last_name }
   end
 
   def self.parse_string(arguments)
