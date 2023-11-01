@@ -21,9 +21,9 @@ class Game < Item
     parent_ans && (@last_played_at < Date.today.prev_year(2))
   end
 
-  def generate_string
-    { multiplayer: @multiplayer, last_played_at: @last_played_at, genre: super.genre.generate_string, author: super.author.generate_string, label: super.label.generate_string, publish_date: super.publish_date.generate_string}
-  end
+  # def generate_string
+  #   { multiplayer: @multiplayer, last_played_at: @last_played_at, genre: super.genre.generate_string, author: super.author.generate_string, label: super.label.generate_string, publish_date: super.publish_date.generate_string}
+  # end
 
   def self.parse_string(arguments)
     # new(arguments['multiplayer'], arguments['last_payed_at'], Genre.parse_string(arguments['']))
