@@ -105,20 +105,20 @@ class App
   end
 
   def add_game
-    #implement genre, label, etc objects logic
+    # implement genre, label, etc objects logic
     new_game = Game.input_arguments
     @games.append(new_game)
   end
 
   def select_genre
-    #show genere list or create new
+    # show genere list or create new
   end
 
   def select_label
-    #show label list or create new
+    # show label list or create new
   end
 
   def select_author
-    #show author list or create new
+    # show author list or create new
   end
 end
