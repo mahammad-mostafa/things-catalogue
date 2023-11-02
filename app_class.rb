@@ -104,17 +104,21 @@ class App
     # s
   end
 
-  def list_authors
-    return puts 'No available authors!' if @authors.empty?
-
-    @authors.each do |a|
-      puts a.first_name
-    end
+  def add_game
+    # implement genre, label, etc objects logic
+    new_game = Game.input_arguments
+    @games.append(new_game)
   end
 
-  def add_game(multiplayer, genre, author, label, publish_date)
-    last_played_at = Date.today
-    new_game = Game.New(multiplayer, last_played_at, genre, author, label, publish_date)
-    @games.append(new_game)
+  def select_genre
+    # show genere list or create new
+  end
+
+  def select_label
+    # show label list or create new
+  end
+
+  def select_author
+    # show author list or create new
   end
 end

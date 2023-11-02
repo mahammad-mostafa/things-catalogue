@@ -42,6 +42,10 @@ class Item
     hash
   end
 
+  def self.parse_string(*arguments)
+    new(*arguments)
+  end
+
   def input_date
     print 'Publish date day: '
     day = gets.chomp
