@@ -10,4 +10,12 @@ class MusicAlbum < Item
   def can_be_archived?
     super && @on_spotify ? true : false
   end
+
+  def self.input_arguments
+    print 'Is it on spotify?'
+    on_spotify = gets.chomp
+    print 'Publish Date?'
+    publish_date = gets.chomp
+    new(on_spotify, publish_date)
+  end
 end
