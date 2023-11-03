@@ -23,7 +23,6 @@ describe 'Tests the MusicAlbum Class' do
     expect(music.can_be_archived?).to be(true)
   end
 
-
   it 'it should request data from user and instantiate a new music album' do
     allow(MusicAlbum).to receive(:gets).and_return('Y')
     allow(Item).to receive(:gets).and_return('27', '10', '2023')
