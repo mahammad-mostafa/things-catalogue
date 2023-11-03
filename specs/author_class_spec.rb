@@ -32,6 +32,6 @@ describe 'Test the Author Class' do
 
   it 'test generate_string method to return correct hash object representation' do
     author = Author.new('Miguel', 'Saavedra', 101)
-    expect(author.generate_string).to eq({:id => 101, :first_name => 'Miguel', :last_name => 'Saavedra'})
+    expect(author.generate_string).to eq({ id: 101, first_name: 'Miguel', last_name: 'Saavedra' })
   end
 end
