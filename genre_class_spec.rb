@@ -21,4 +21,11 @@ describe 'Tests the Genre Class' do
     @object.add_item(@item)
     expect(@item).to be_an_instance_of(Item)
   end
+
+  it 'it should request data from user and instantiate a new genre' do
+    allow_any_instance_of(Object).to receive(:gets).and_return("Test Genre\n")
+
+    genre = Genre.input_arguments
+    expect(genre.instance_variable_get(:@name)).to eq('Test Genre')
+  end
 end

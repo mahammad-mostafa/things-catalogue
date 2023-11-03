@@ -12,10 +12,10 @@ class MusicAlbum < Item
   end
 
   def self.input_arguments
-    print 'Is it on spotify?'
-    on_spotify = gets.chomp
+    print 'Is it on spotify? (T/F)'
+    on_spotify = gets.chomp.downcase
     print 'Publish Date?'
-    publish_date = gets.chomp
+    publish_date = Date.parse(gets.chomp)
     new(on_spotify, publish_date)
   end
 end
