@@ -24,6 +24,7 @@ describe 'Test the Author Class' do
   end
 
   it 'test user input and instance of class be of type Author' do
+    allow($stdout).to(receive(:write))
     allow_any_instance_of(Object).to receive(:gets).and_return('TestFirstName', 'TestLastName')
     author = Author.input_arguments
     expect(author.instance_variable_get(:@first_name)).to eq('TestFirstName')

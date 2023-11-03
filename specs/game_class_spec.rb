@@ -33,6 +33,7 @@ describe 'Test the Game Class' do
   end
 
   it 'it should request data from user and instantiate a new game' do
+    allow($stdout).to(receive(:write))
     allow_any_instance_of(Object).to receive(:gets).and_return('Y')
     allow(Item).to receive(:input_date).and_return(Date.new(2020, 11, 3))
     expect(Game).to receive(:new).with(true, Date.today, Date.new(2020, 11, 3))
@@ -40,6 +41,7 @@ describe 'Test the Game Class' do
   end
 
   it 'should request data from user and correcly preserve data' do
+    allow($stdout).to(receive(:write))
     allow_any_instance_of(Object).to receive(:gets).and_return('Y')
     allow(Item).to receive(:input_date).and_return(Date.new(2020, 11, 3))
     game = Game.input_arguments
