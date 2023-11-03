@@ -7,7 +7,6 @@ require_relative '../game_class'
 describe 'Test the Game Class' do
   before :each do
     @object = Game.new(true, (Date.today - 6000), (Date.today - 6000))
-    @item = Item.new(Date.today - 6000)
   end
 
   it 'test if the class has the correct multiplayer value' do
