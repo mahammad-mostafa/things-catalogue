@@ -22,4 +22,11 @@ describe 'Tests the MusicAlbum Class' do
     music = MusicAlbum.new(true, (Date.today - 6000))
     expect(music.can_be_archived?).to be(true)
   end
+
+  it 'it should request data from user and instantiate a new music album' do
+    allow_any_instance_of(Object).to receive(:gets).and_return('true', '2023-10-27')
+    album = MusicAlbum.input_arguments
+    expect(album.instance_variable_get(:@on_spotify)).to eq('true')
+    expect(album.instance_variable_get(:@publish_date).to_s).to eq('2023-10-27')
+  end
 end

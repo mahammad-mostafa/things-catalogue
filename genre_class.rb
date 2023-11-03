@@ -15,6 +15,12 @@ class Genre
     iteminstance.add_genre(self) unless iteminstance.genre == self
   end
 
+  def self.input_arguments
+    print 'name of genre'
+    name = gets.chomp
+    new(name)
+  end
+
   def self.parse_string(arguments)
     new(arguments['@name'])
   end
