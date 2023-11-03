@@ -18,30 +18,30 @@ describe 'Test the Game Class' do
   end
 
   it 'tests if the can_be_archived method returns true for 10+ years of publish date and 2+ years of last played' do
-    game = Game.new(true, (Date.today - 800 ), (Date.today - 6000))
+    game = Game.new(true, (Date.today - 800), (Date.today - 6000))
     expect(game.can_be_archived?).to be(true)
   end
 
   it 'tests if the can_be_archived method returns false for 10+ years of publish date and 2- years of last played' do
-    game = Game.new(true, (Date.today), (Date.today - 6000))
+    game = Game.new(true, Date.today, Date.today - 6000)
     expect(game.can_be_archived?).to be(false)
   end
 
   it 'tests if the can_be_archived method returns false for 10- years of publish date and 2- years of last played' do
-    game = Game.new(true, (Date.today), (Date.today))
+    game = Game.new(true, Date.today, Date.today)
     expect(game.can_be_archived?).to be(false)
   end
 
   it 'it should request data from user and instantiate a new game' do
-    allow_any_instance_of(Object).to receive(:gets).and_return("Y")
-    allow(Item).to receive(:input_date).and_return(Date.new(2020,11,3))
+    allow_any_instance_of(Object).to receive(:gets).and_return('Y')
+    allow(Item).to receive(:input_date).and_return(Date.new(2020, 11, 3))
     expect(Game).to receive(:new).with(true, Date.today, Date.new(2020, 11, 3))
-    game = Game.input_arguments
+    Game.input_arguments
   end
 
   it 'should request data from user and correcly preserve data' do
-    allow_any_instance_of(Object).to receive(:gets).and_return("Y")
-    allow(Item).to receive(:input_date).and_return(Date.new(2020,11,3))
+    allow_any_instance_of(Object).to receive(:gets).and_return('Y')
+    allow(Item).to receive(:input_date).and_return(Date.new(2020, 11, 3))
     game = Game.input_arguments
     expect(game.instance_variable_get(:@multiplayer)).to eq(true)
     expect(game.instance_variable_get(:@last_played_at)).to eq(Date.today)
