@@ -10,7 +10,7 @@ class Genre
 
   def add_item(iteminstance)
     @items << iteminstance unless @items.any? { |element| element.id == iteminstance.id }
-    iteminstance.add_genre(self) unless iteminstance.genre.id == @id
+    iteminstance.add_genre(self)
   end
 
   def generate_string
