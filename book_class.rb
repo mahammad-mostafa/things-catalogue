@@ -7,16 +7,12 @@ class Book < Item
     super(arguments)
   end
 
-  def self.parse_string(arguments)
-    new(arguments['@publisher'], arguments['@cover_state'], arguments['@publish_date'], arguments['@id'])
-  end
-
   def self.input_arguments
     print 'Publisher: '
     publisher = gets.chomp
     print 'Cover state: '
     cover_state = gets.chomp
-    publish_date = input_date
+    publish_date = Item.input_date
     new(publisher, cover_state, publish_date)
   end
 

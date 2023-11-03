@@ -1,7 +1,7 @@
 require 'date'
-require_relative 'genre_class'
-require_relative 'item_class'
-require_relative 'album_class'
+require_relative '../genre_class'
+require_relative '../item_class'
+require_relative '../album_class'
 
 describe 'Tests the MusicAlbum Class' do
   before :each do

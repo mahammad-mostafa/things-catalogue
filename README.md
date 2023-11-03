@@ -27,13 +27,15 @@ Check the below contents for further details about this project.
 
 # 📖 Description
 
-This repository is for catalogue of different item types that the user can add.
+This repository is about a catalogue of different item types that the user can add.
+There is one parent class `Item` and three children classes (`Book` / `MusicAlbum` / `Game`).
+Three classes (`Label` / `Genre` / `Author`) has one to many association witth `Item` class. 
 
 📌 **Tech Stack:**
 - Application uses `Ruby`
 - Unit tests run with `RSpec`
 - Linting is done with `Rubocop`
-- Schema files uses `PostgreSQL`
+- Schema file uses `PostgreSQL`
 
 📌 **Key Features:**
 # To be done

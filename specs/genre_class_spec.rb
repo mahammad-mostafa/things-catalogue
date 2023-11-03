@@ -1,5 +1,5 @@
-require_relative 'genre_class'
-require_relative 'item_class'
+require_relative '../genre_class'
+require_relative '../item_class'
 
 describe 'Tests the Genre Class' do
   before :each do

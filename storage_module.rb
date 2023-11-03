@@ -1,8 +1,6 @@
-require 'json'
-
 module Storage
   def read_file(name)
-    return JSON.parse(File.read(name)) if File.exist?(name)
+    return JSON.parse(File.read("#{name}.json")) if File.exist?("#{name}.json")
 
     []
   end
@@ -12,6 +10,6 @@ module Storage
     array.each do |item|
       data.append(item.generate_string)
     end
-    File.write(name, JSON.generate(data))
+    File.write("#{name}.json", JSON.generate(data))
   end
 end

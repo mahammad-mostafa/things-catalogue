@@ -1,10 +1,9 @@
-require_relative 'item_class'
 class MusicAlbum < Item
   attr_accessor :on_spotify
 
-  def initialize(on_spotify, publish_date)
-    super(publish_date)
+  def initialize(on_spotify, *arguments)
     @on_spotify = on_spotify
+    super(*arguments)
   end
 
   def can_be_archived?
@@ -12,10 +11,9 @@ class MusicAlbum < Item
   end
 
   def self.input_arguments
-    print 'Is it on spotify? (T/F)'
-    on_spotify = gets.chomp.downcase
-    print 'Publish Date?'
-    publish_date = Date.parse(gets.chomp)
+    print 'On spotify (Y/N): '
+    on_spotify = gets.chomp.upcase == 'Y'
+    publish_date = Item.input_date
     new(on_spotify, publish_date)
   end
 end

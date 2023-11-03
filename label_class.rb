@@ -1,10 +1,8 @@
-require 'securerandom'
-
 class Label
   attr_reader :id, :items
   attr_accessor :title, :color
 
-  def initialize(title, color, id = SecureRandom.uuid)
+  def initialize(title, color, id = Random.rand(1..1000))
     @title = title
     @color = color
     @id = id
@@ -12,11 +10,19 @@ class Label
   end
 
   def add_item(item)
-    @items.append(item) unless @items.include?(item)
-    item.add_label(self) unless item.label == self
+    @items.append(item) unless @items.any? { |element| element.id == item.id }
+    item.add_label(self) unless item.label.id == @id
   end
 
-  def self.parse_string(arguments)
-    new(arguments['@title'], arguments['@color'], arguments['@id'])
+  def generate_string
+    { id: @id, title: @title, color: @color }
+  end
+
+  def self.input_arguments
+    print 'Title: '
+    title = gets.chomp
+    print 'Color: '
+    color = gets.chomp
+    new(title, color)
   end
 end
