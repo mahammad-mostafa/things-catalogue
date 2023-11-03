@@ -1,11 +1,7 @@
-require 'date'
-require 'securerandom'
-
 class Item
-  attr_reader :id, :archived
-  attr_accessor :genre, :author, :label, :publish_date
+  attr_reader :id, :archived, :genre, :author, :label, :publish_date
 
-  def initialize(publish_date, id = SecureRandom.uuid)
+  def initialize(publish_date, id = Random.rand(1..1000))
     @publish_date = publish_date
     @id = id
     @archived = false
@@ -15,19 +11,19 @@ class Item
     @archived = true if can_be_archived?
   end
 
+  def add_label(label)
+    @label = label
+    @label.add_item(self) unless @label.items.any? { |item| item.id == @id }
+  end
+
   def add_genre(genre)
     @genre = genre
-    @genre.add_item(self) unless @genre.items.include?(self)
+    @genre.add_item(self) unless @genre.items.any? { |item| item.id == @id }
   end
 
   def add_author(author)
     @author = author
-    @author.add_item(self) unless @author.items.include?(self)
-  end
-
-  def add_label(label)
-    @label = label
-    @label.add_item(self) unless @label.items.include?(self)
+    @author.add_item(self) unless @author.items.any? { |item| item.id == @id }
   end
 
   def generate_string
@@ -42,17 +38,13 @@ class Item
     hash
   end
 
-  def self.parse_string(*arguments)
-    new(*arguments)
-  end
-
-  def input_date
+  def self.input_date
     print 'Publish date day: '
-    day = gets.chomp
+    day = gets.chomp.to_i
     print 'Publish date month: '
-    month = gets.chomp
+    month = gets.chomp.to_i
     print 'Publish date year: '
-    year = gets.chomp
+    year = gets.chomp.to_i
     Date.new(year, month, day)
   end
 
