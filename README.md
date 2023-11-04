@@ -31,7 +31,7 @@ This repository is about a catalogue of different item types that the user can a
 There is one parent class `Item` and three children classes (`Book` / `MusicAlbum` / `Game`).
 Three classes (`Label` / `Genre` / `Author`) have one to many association with `Item` class.
 Built unit tests for implemented methods of seven classes (`Item` / `Book` / `MusicAlbum` / `Game` / `Label` / `Genre` / `Author`).
-Created database tables for items data inside `schema.sql` file. 
+Created database tables for items data inside `schema.sql` file.
 
 📌 **Live Demo:**
 - Watch the project presentation from [here](https://drive.google.com/file/d/1NnMH3q7sMEj9BFCytLok3lqXC8FQOn7z)
