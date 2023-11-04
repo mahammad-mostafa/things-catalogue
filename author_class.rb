@@ -11,7 +11,7 @@ class Author
 
   def add_item(item)
     @items.append(item) unless @items.any? { |element| element.id == item.id }
-    item.add_author(self) unless item.author.id == @id
+    item.add_author(self)
   end
 
   def generate_string

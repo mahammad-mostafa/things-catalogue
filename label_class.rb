@@ -11,7 +11,7 @@ class Label
 
   def add_item(item)
     @items.append(item) unless @items.any? { |element| element.id == item.id }
-    item.add_label(self) unless item.label.id == @id
+    item.add_label(self)
   end
 
   def generate_string

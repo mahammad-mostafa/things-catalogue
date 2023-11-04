@@ -1,5 +1,3 @@
-require 'date'
-
 class Item
   attr_reader :id, :archived, :genre, :author, :label, :publish_date
 
@@ -30,7 +28,7 @@ class Item
 
   def generate_string
     hash = {}
-    hash['type'] = self.class
+    hash[:@type] = self.class
     instance_variables.each do |variable|
       value = instance_variable_get(variable)
       value = value.generate_string if value.respond_to?(:generate_string)

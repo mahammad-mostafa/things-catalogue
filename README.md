@@ -27,9 +27,14 @@ Check the below contents for further details about this project.
 
 # 📖 Description
 
-This repository is about a catalogue of different item types that the user can add.
+This repository is about a catalogue of different item types that the user can add or display.
 There is one parent class `Item` and three children classes (`Book` / `MusicAlbum` / `Game`).
-Three classes (`Label` / `Genre` / `Author`) has one to many association witth `Item` class. 
+Three classes (`Label` / `Genre` / `Author`) have one to many association with `Item` class.
+Built unit tests for implemented methods of seven classes (`Item` / `Book` / `MusicAlbum` / `Game` / `Label` / `Genre` / `Author`).
+Created database tables for items data inside `schema.sql` file. 
+
+📌 **Live Demo:**
+- Watch the project presentation from [here](https://drive.google.com/file/d/1NnMH3q7sMEj9BFCytLok3lqXC8FQOn7z)
 
 📌 **Tech Stack:**
 - Application uses `Ruby`
@@ -38,7 +43,11 @@ Three classes (`Label` / `Genre` / `Author`) has one to many association witth `
 - Schema file uses `PostgreSQL`
 
 📌 **Key Features:**
-# To be done
+- User is given the option to either add new item or display a list
+- Available item types to add (`book` / `music album` / `game`)
+- Available list types to display (`books` / `albums` / `games` / `labels` / `genres` / `authors`)
+- Adding any new item will require the use to select (`label` / `genre` / `author`) form a list or create new ones
+- All items created by the user are stored in `json` files and reloaded after restart
 
 
 <p align="right"><a href="#title">back to top</a></p>
@@ -85,8 +94,9 @@ rspec . -f d
 - [Twitter](https://twitter.com/mahammad_mostfa)
 - [LinkedIn](https://linkedin.com/in/mahammad-mostafa)
 
-📌 **Carlos:**
-- [GitHub](https://github.com/CarlosZ96)
+📌 **Alexander:**
+- [GitHub](https://github.com/alexansaa)
+- [LinkedIn](https://www.linkedin.com/in/alexander-saavedra-2803b1b6)
 
 📌 **Austin:**
 - [GitHub](https://github.com/stino-x)
