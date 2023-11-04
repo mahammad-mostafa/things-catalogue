@@ -71,4 +71,14 @@ describe('Tests for Item class methods') do
     # Assert
     expect(publish_date).to(eq(Date.new(2010, 10, 10)))
   end
+
+  it('validate_date method should return user input if value is valid') do
+    # Arrange
+    allow($stdout).to(receive(:write))
+    allow(Item).to(receive(:gets)).and_return('10')
+    # Act
+    day = Item.validate_date('day', 31)
+    # Assert
+    expect(day).to(eq(10))
+  end
 end

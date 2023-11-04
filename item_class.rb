@@ -38,14 +38,27 @@ class Item
     hash
   end
 
-  def self.input_date
-    print 'Publish date day: '
-    day = gets.chomp.to_i
-    print 'Publish date month: '
-    month = gets.chomp.to_i
-    print 'Publish date year: '
-    year = gets.chomp.to_i
-    Date.new(year, month, day)
+  def self.input_date(type = 'day', date = [])
+    case type
+    when 'day'
+      date.append(validate_date(type, 31))
+      input_date('month', date)
+    when 'month'
+      date.append(validate_date(type, 12))
+      input_date('year', date)
+    when 'year'
+      date.append(validate_date(type, Date.today.year))
+      Date.new(date[2], date[1], date[0])
+    end
+  end
+
+  def self.validate_date(type, limit)
+    print "Publish date #{type}: "
+    number = gets.chomp.to_i
+    return number if number.is_a?(Integer) && number.positive? && number <= limit
+
+    puts "Invalid value! Please enter a positive number less than #{limit}"
+    validate_date(type, limit)
   end
 
   private
