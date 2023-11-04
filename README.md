@@ -33,6 +33,9 @@ Three classes (`Label` / `Genre` / `Author`) have one to many association with `
 Built unit tests for implemented methods of seven classes (`Item` / `Book` / `MusicAlbum` / `Game` / `Label` / `Genre` / `Author`).
 Created database tables for items data inside `schema.sql` file. 
 
+📌 **Live Demo:**
+- Watch the project presentation from [here](https://drive.google.com/file/d/1NnMH3q7sMEj9BFCytLok3lqXC8FQOn7z)
+
 📌 **Tech Stack:**
 - Application uses `Ruby`
 - Unit tests run with `RSpec`
